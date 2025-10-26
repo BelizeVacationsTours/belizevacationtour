@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belize Vacation Store - Tours & Transportation</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <a href="index.html" class="logo">Belize Vacation Store</a>
+                <ul class="nav-links">
+                    <li><a href="#tours">Tours</a></li>
+                    <li><a href="#transport">Transportation</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Discover the Best of Belize</h1>
+            <p>Your adventure starts here. Book tours, shuttles, and unique experiences.</p>
+            <a href="#tours" class="cta-button">See All Tours</a>
+        </div>
+    </section>
+
+    <section id="tours" class="content-section">
+        <div class="container">
+            <h2>Our Popular Tours</h2>
+            <div class="card-container">
+                <div class="card">
+                    <img src="https://via.placeholder.com/350x200?text=Cave+Tubing" alt="Cave Tubing Tour">
+                    <h3>Cave Tubing & Ziplining</h3>
+                    <p>Explore ancient Maya caves and fly through the jungle canopy. A must-do adventure!</p>
+                    <a href="#" class="btn-secondary">Learn More</a>
+                </div>
+                
+                <div class="card">
+                    <img src="https://via.placeholder.com/350x200?text=Maya+Ruins" alt="Maya Ruins Tour">
+                    <h3>Maya Ruin Expedition (Xunantunich)</h3>
+                    <p>Step back in time at one of Belize's most magnificent Maya archaeological sites.</p>
+                    <a href="#" class="btn-secondary">Learn More</a>
+                </div>
+
+                <div class="card">
+                    <img src="https://via.placeholder.com/350x200?text=Snorkeling" alt="Snorkeling Tour">
+                    <h3>Barrier Reef Snorkeling</h3>
+                    <p>Swim with sharks, rays, and tropical fish at the stunning Hol Chan Marine Reserve.</p>
+                    <a href="#" class="btn-secondary">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="booking" class="content-section">
+        <div class="container">
+            <h2>Book Your Tour</h2>
+            <form id="booking-form-cave">
+                <input type="text" name="user_name" required placeholder="Your Name">
+                <input type="email" name="user_email" required placeholder="Your Email">
+                <input type="text" name="user_tour" required placeholder="Tour Name">
+                <input type="date" name="user_date" required placeholder="Tour Date">
+                <button type="submit">Send Booking</button>
+            </form>
+            <p id="form-message-cave"></p>
+        </div>
+    </section>
+
+    <section id="transport" class="content-section bg-light">
+        <div class="container">
+            <h2>Transportation & Shuttles</h2>
+            <div class="card-container">
+                <div class="card">
+                    <img src="https://via.placeholder.com/350x200?text=Airport+Shuttle" alt="Airport Shuttle">
+                    <h3>Airport to Hotel Shuttle</h3>
+                    <p>Reliable, air-conditioned transport from BZE Airport to your hotel in San Ignacio or Belize City.</p>
+                    <a href="#" class="btn-secondary">Book Now</a>
+                </div>
+                
+                <div class="card">
+                    <img src="https://via.placeholder.com/350x200?text=Water+Taxi" alt="Water Taxi">
+                    <h3>Water Taxi (Belize City to Caye Caulker)</h3>
+                    <p>The fastest and most scenic way to get to the islands. Multiple daily departures.</p>
+                    <a href="#" class="btn-secondary">Book Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Belize Vacation Store. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- EmailJS scripts (REPLACE ALL PLACEHOLDERS) -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        (function() {
+            // Replace with your EmailJS Public Key from https://dashboard.emailjs.com/
+            emailjs.init("YOUR_PUBLIC_KEY");
+        })();
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const bookingForm = document.getElementById('booking-form-cave');
+            const formMessage = document.getElementById('form-message-cave');
+            const submitBtn = bookingForm.querySelector('button[type="submit"]');
+
+            bookingForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+                formMessage.textContent = "Sending request...";
+                formMessage.style.color = "black";
+                if (submitBtn) submitBtn.disabled = true;
+
+                // Replace with your EmailJS Service ID & Template ID
+                const serviceID = "YOUR_SERVICE_ID";
+                const templateID = "YOUR_TEMPLATE_ID";
+
+                emailjs.sendForm(serviceID, templateID, this)
+                    .then(function() {
+                        formMessage.textContent = "Success! We will contact you shortly.";
+                        formMessage.style.color = "green";
+                        bookingForm.reset();
+                    }, function(error) {
+                        formMessage.textContent = "Error: Could not send request.";
+                        formMessage.style.color = "red";
+                        console.log('FAILED...', error);
+                    })
+                    .finally(function() {
+                        if (submitBtn) submitBtn.disabled = false;
+                    });
+            });
+        });
+    </script>
+
+</body>
+</html>
