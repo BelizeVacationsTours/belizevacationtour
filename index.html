@@ -4,8 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jaguar Preserve Tours and Transfers - Belize Adventures</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="//images.unsplash.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --bgGradient1: #667eea;
+            --bgGradient2: #764ba2;
+            --primary: #3498db;
+            --primaryDark: #2980b9;
+            --ink: #2c3e50;
+            --glass: rgba(255,255,255,0.85);
+            --glassStroke: rgba(255,255,255,0.35);
+            --shadow: 0 10px 30px rgba(0,0,0,0.15);
+            --radius: 16px;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -17,6 +32,11 @@
             line-height: 1.6;
             color: #333;
             scroll-behavior: smooth;
+            background: radial-gradient(1200px 600px at 20% -10%, rgba(255,255,255,0.25), transparent 40%),
+                        radial-gradient(800px 500px at 100% 0, rgba(255,255,255,0.18), transparent 50%),
+                        linear-gradient(135deg, var(--bgGradient1), var(--bgGradient2));
+            min-height: 100vh;
+            background-attachment: fixed;
         }
 
         .container {
@@ -27,12 +47,13 @@
 
         /* Navbar */
         .navbar {
-            background: #2c3e50;
+            background: rgba(44,62,80,0.75);
             padding: 1rem 0;
             position: sticky;
             top: 0;
             z-index: 100;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            backdrop-filter: saturate(140%) blur(10px);
         }
 
         .navbar .container {
@@ -67,10 +88,37 @@
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 100px 20px;
+            padding: 120px 20px 100px;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: -20% -10% auto -10%;
+            height: 80%;
+            background: radial-gradient(ellipse at 30% 30%, rgba(255,255,255,0.18), transparent 50%),
+                        radial-gradient(ellipse at 70% 20%, rgba(255,255,255,0.12), transparent 55%),
+                        linear-gradient(135deg, var(--bgGradient1), var(--bgGradient2));
+            z-index: -1;
+            animation: gradientShift 12s ease-in-out infinite alternate;
+        }
+        .hero::after {
+            content: "";
+            position: absolute;
+            bottom: -120px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 140%;
+            height: 240px;
+            background: radial-gradient(closest-side, rgba(255,255,255,0.9), rgba(255,255,255,0.4), transparent 70%);
+            filter: blur(40px);
+        }
+        @keyframes gradientShift {
+            0% { filter: hue-rotate(0deg) saturate(110%); }
+            100% { filter: hue-rotate(10deg) saturate(140%); }
         }
 
         .hero-content h1 {
@@ -85,23 +133,23 @@
 
         .cta-button {
             display: inline-block;
-            background: #fff;
-            color: #667eea;
+            background: linear-gradient(180deg, #fff 0%, #eaf1ff 100%);
+            color: var(--bgGradient1);
             padding: 15px 40px;
             text-decoration: none;
             border-radius: 50px;
             font-weight: 700;
-            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.8);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
         }
 
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-        }
+        .cta-button:hover { transform: translateY(-3px) scale(1.02); }
+        .cta-button:active { transform: translateY(0) scale(0.99); }
 
         /* Content Sections */
         .content-section {
-            padding: 60px 20px;
+            padding: 80px 20px;
+            scroll-margin-top: 90px;
         }
 
         .content-section h2 {
@@ -111,9 +159,7 @@
             color: #2c3e50;
         }
 
-        .bg-light {
-            background: #f8f9fa;
-        }
+        .bg-light { background: rgba(255,255,255,0.6); backdrop-filter: blur(6px); }
 
         /* Feature Section Style (for Jaguar Preserve & Chocolate) */
         .feature-container {
@@ -128,10 +174,11 @@
 
         .feature-image img {
             width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
             height: 400px;
             object-fit: cover;
+            border: 1px solid var(--glassStroke);
         }
 
         .feature-content h3 {
@@ -162,18 +209,18 @@
         }
 
         .card {
-            background: white;
-            border-radius: 10px;
+            background: var(--glass);
+            border-radius: var(--radius);
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
+            box-shadow: var(--shadow);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
             display: flex;
             flex-direction: column;
+            border: 1px solid var(--glassStroke);
+            backdrop-filter: saturate(160%) blur(8px);
         }
 
-        .card:hover {
-            transform: translateY(-10px);
-        }
+        .card:hover { transform: translateY(-8px); box-shadow: 0 16px 40px rgba(0,0,0,0.22); }
 
         .card img {
             width: 100%;
@@ -209,17 +256,16 @@
         .btn-secondary {
             display: inline-block;
             padding: 10px 30px;
-            background: #3498db;
+            background: linear-gradient(180deg, var(--primary), #2f89c7);
             color: white;
             text-decoration: none;
             border-radius: 5px;
-            transition: background 0.3s;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
             text-align: center;
         }
 
-        .btn-secondary:hover {
-            background: #2980b9;
-        }
+        .btn-secondary:hover { transform: translateY(-2px); box-shadow: 0 8px 16px rgba(47,137,199,0.35); }
+        .btn-secondary:active { transform: translateY(0); }
 
         /* NEW: Style for the 'Learn More' button */
         .btn-learn-more {
@@ -236,12 +282,14 @@
 
         /* Booking Form */
         #booking-form-cave {
-            max-width: 600px;
+            max-width: 640px;
             margin: 0 auto;
-            background: white;
+            background: var(--glass);
             padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--glassStroke);
+            backdrop-filter: saturate(160%) blur(8px);
         }
 
         .form-group {
@@ -274,19 +322,17 @@
         button[type="submit"] {
             width: 100%;
             padding: 15px;
-            background: #667eea;
+            background: linear-gradient(180deg, #7489ff, #5c6de6);
             color: white;
             border: none;
             border-radius: 5px;
             font-size: 1.1rem;
             font-weight: 700;
             cursor: pointer;
-            transition: background 0.3s;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
-        button[type="submit"]:hover {
-            background: #764ba2;
-        }
+        button[type="submit"]:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(92,109,230,0.35); }
 
         button[type="submit"]:disabled {
             background: #ccc;
@@ -305,9 +351,11 @@
         }
 
         .calendar-section iframe {
+            width: 100% !important;
             max-width: 100%;
             border: solid 1px #ddd;
-            border-radius: 10px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
         }
 
         /* Footer */
@@ -317,6 +365,12 @@
             text-align: center;
             padding: 30px 20px;
         }
+
+        /* Reveal on scroll */
+        .reveal { opacity: 0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }
+        .reveal.in-view { opacity: 1; transform: none; }
+        .card, .feature-image img { opacity: 0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }
+        .card.in-view, .feature-image img.in-view { opacity: 1; transform: none; }
 
         /* Responsive */
         @media (max-width: 768px) {
@@ -338,13 +392,16 @@
                 font-size: 1rem;
             }
 
-            .feature-container {
-                flex-direction: column;
-            }
+            .feature-container { flex-direction: column; }
 
             .card-container {
                 grid-template-columns: 1fr;
             }
+        }
+
+        /* Reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            * { animation: none !important; transition: none !important; }
         }
     </style>
 </head>
@@ -373,15 +430,92 @@
         </div>
     </section>
 
+    <!-- App Mockups (SVG) -->
+    <section id="mockups" class="content-section bg-light">
+        <div class="container reveal">
+            <h2>Plan, Book, and Go — Beautifully</h2>
+            <div class="feature-container" style="align-items: stretch;">
+                <div class="feature-image" style="flex: 0 0 420px; max-width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <!-- Phone mockup -->
+                    <svg viewBox="0 0 260 520" width="100%" height="100%" style="filter: drop-shadow(0 14px 40px rgba(0,0,0,.25)); border-radius: 28px; background: none;" aria-label="Mobile app mockup">
+                        <defs>
+                            <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0%" stop-color="#7aaaff"/>
+                                <stop offset="100%" stop-color="#8b6cff"/>
+                            </linearGradient>
+                            <clipPath id="phoneRound">
+                                <rect x="10" y="10" width="240" height="500" rx="28" ry="28"/>
+                            </clipPath>
+                        </defs>
+                        <rect x="0" y="0" width="260" height="520" rx="36" ry="36" fill="#0f172a"/>
+                        <rect x="10" y="10" width="240" height="500" rx="28" ry="28" fill="#0b1225" stroke="rgba(255,255,255,.15)"/>
+                        <g clip-path="url(#phoneRound)">
+                            <!-- Header -->
+                            <rect x="10" y="10" width="240" height="90" fill="url(#g1)"/>
+                            <circle cx="40" cy="55" r="22" fill="#ffffff" fill-opacity=".9"/>
+                            <rect x="72" y="35" width="150" height="12" rx="6" fill="#fff" fill-opacity=".9"/>
+                            <rect x="72" y="55" width="120" height="10" rx="5" fill="#fff" fill-opacity=".8"/>
+
+                            <!-- Card 1: Jaguar Preserve -->
+                            <rect x="20" y="120" width="220" height="120" rx="16" fill="#18223e" stroke="rgba(255,255,255,.08)"/>
+                            <image href="https://images.unsplash.com/photo-1547966746-320b5a19c63b?w=440&h=120&fit=crop" x="20" y="120" width="220" height="70" preserveAspectRatio="xMidYMid slice"/>
+                            <rect x="32" y="198" width="160" height="10" rx="5" fill="#9bb9ff"/>
+                            <rect x="32" y="214" width="120" height="8" rx="4" fill="#728cff"/>
+
+                            <!-- Card 2: Cave Tubing -->
+                            <rect x="20" y="250" width="220" height="120" rx="16" fill="#18223e" stroke="rgba(255,255,255,.08)"/>
+                            <image href="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=440&h=120&fit=crop" x="20" y="250" width="220" height="70" preserveAspectRatio="xMidYMid slice"/>
+                            <rect x="32" y="328" width="150" height="10" rx="5" fill="#9bb9ff"/>
+                            <rect x="32" y="344" width="100" height="8" rx="4" fill="#728cff"/>
+
+                            <!-- Button -->
+                            <rect x="60" y="400" width="140" height="36" rx="18" fill="#6d83ff"/>
+                            <text x="130" y="424" text-anchor="middle" font-size="12" fill="#fff" font-family="Roboto, Arial, sans-serif">Book Now</text>
+                        </g>
+                    </svg>
+
+                    <!-- Desktop panel mockup -->
+                    <svg viewBox="0 0 560 360" width="100%" height="100%" style="filter: drop-shadow(0 14px 40px rgba(0,0,0,.25)); border-radius: 16px; background: none;" aria-label="Desktop app mockup">
+                        <defs>
+                            <linearGradient id="g2" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0%" stop-color="#eaf1ff"/>
+                                <stop offset="100%" stop-color="#ffffff"/>
+                            </linearGradient>
+                        </defs>
+                        <rect x="0" y="0" width="560" height="360" rx="16" fill="url(#g2)"/>
+                        <rect x="20" y="20" width="520" height="40" rx="10" fill="#c7d7ff"/>
+                        <rect x="20" y="80" width="340" height="180" rx="12" fill="#dfe8ff"/>
+                        <image href="https://images.unsplash.com/photo-1500331882312-3663080d191a?w=680&h=360&fit=crop" x="20" y="80" width="340" height="180" preserveAspectRatio="xMidYMid slice"/>
+                        <rect x="380" y="80" width="160" height="12" rx="6" fill="#9fb3ff"/>
+                        <rect x="380" y="100" width="120" height="10" rx="5" fill="#b9c7ff"/>
+                        <rect x="380" y="140" width="140" height="12" rx="6" fill="#9fb3ff"/>
+                        <rect x="380" y="160" width="110" height="10" rx="5" fill="#b9c7ff"/>
+                        <rect x="380" y="220" width="90" height="28" rx="8" fill="#6d83ff"/>
+                        <text x="425" y="239" text-anchor="middle" font-size="12" fill="#fff" font-family="Roboto, Arial, sans-serif">Get Quote</text>
+                    </svg>
+                </div>
+                <div class="feature-content" style="align-self:center;">
+                    <h3>See your adventure before you go</h3>
+                    <p>Clean mockups of your app experience help guests visualize tours, transfers and activities. Subtle micro-animations and glassy UI details make it feel premium.</p>
+                    <ul>
+                        <li>Instant overview of featured experiences</li>
+                        <li>Mobile-first booking flow</li>
+                        <li>Fast performance with lazy images</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="preserve" class="content-section">
         <div class="container">
             <h2>Cockscomb Basin Wildlife Sanctuary</h2>
             <div class="feature-container">
                 <div class="feature-image">
-                    <img src="https://images.unsplash.com/photo-1547966746-320b5a19c63b?w=600&h=400&fit=crop" alt="Jaguar in the jungle">
+                    <img src="https://images.unsplash.com/photo-1547966746-320b5a19c63b?w=600&h=400&fit=crop" alt="Jaguar in the jungle" loading="lazy" decoding="async">
                 </div>
                 <div class="feature-content">
-                    <p>The Cockscomb Basin Wildlife Sanctuary is the **world's first jaguar preserve** in Belize, protecting over 128,000 acres of rainforest. It offers visitors hiking trails, river tubing, and waterfall visits, and is home to jaguars, tapirs, and hundreds of bird species. While the sanctuary is a jaguar hotspot, seeing one is unlikely due to their elusive nature.</p>
+                    <p>The Cockscomb Basin Wildlife Sanctuary is the <strong>world's first jaguar preserve</strong> in Belize, protecting over 128,000 acres of rainforest. It offers visitors hiking trails, river tubing, and waterfall visits, and is home to jaguars, tapirs, and hundreds of bird species. While the sanctuary is a jaguar hotspot, seeing one is unlikely due to their elusive nature.</p>
 
                     <h3>What the Preserve Offers</h3>
                     <ul>
@@ -408,7 +542,7 @@
             <div class="card-container">
 
                 <div class="card">
-                    <img src="https://images.unsplash.com/photo-1547966746-320b5a19c63b?w=400&h=250&fit=crop" alt="Jaguar Preserve Tour">
+                    <img src="https://images.unsplash.com/photo-1547966746-320b5a19c63b?w=400&h=250&fit=crop" alt="Jaguar Preserve Tour" loading="lazy" decoding="async">
                     <div class="card-content">
                         <h3>Jaguar Preserve Tour (Cockscomb)</h3>
                         <p>Hike the trails of the world's only Jaguar Preserve. Explore waterfalls, see exotic wildlife, and tube down the river in this massive sanctuary.</p>
@@ -420,7 +554,7 @@
                 </div>
 
                 <div class="card">
-                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=400&h=250&fit=crop" alt="Maya Ruins Tour">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=400&h=250&fit=crop" alt="Maya Ruins Tour" loading="lazy" decoding="async">
                     <div class="card-content">
                         <h3>Mayan Ruin Expedition</h3>
                         <p>Step back in time at magnificent Maya archaeological sites like Xunantunich or Caracol. Climb ancient temples and learn about a lost civilization.</p>
@@ -431,7 +565,7 @@
                 </div>
 
                 <div class="card">
-                    <img src="https://images.unsplash.com/photo-1589922585993-218e83311f2c?w=400&h=250&fit=crop" alt="Belize Zoo Tour">
+                    <img src="https://images.unsplash.com/photo-1589922585993-218e83311f2c?w=400&h=250&fit=crop" alt="Belize Zoo Tour" loading="lazy" decoding="async">
                     <div class="card-content">
                         <h3>The Belize Zoo</h3>
                         <p>Visit "the best little zoo in the world." See native Belizean animals, including jaguars, tapirs, toucans, and monkeys, in natural-style habitats.</p>
@@ -442,7 +576,7 @@
                 </div>
 
                 <div class="card">
-                    <img src="https://images.unsplash.com/photo-1558550341-26f286826c48?w=400&h=250&fit=crop" alt="Chocolate Making Tour">
+                    <img src="https://images.unsplash.com/photo-1558550341-26f286826c48?w=400&h=250&fit=crop" alt="Chocolate Making Tour" loading="lazy" decoding="async">
                     <div class="card-content">
                         <h3>Mayan Chocolate Making</h3>
                         <p>A hands-on cultural tour. Learn the traditional process from bean to bar. Roast, grind, and make your own chocolate the way the Mayas did.</p>
@@ -453,7 +587,7 @@
                 </div>
 
                 <div class="card">
-                    <img src="https://images.unsplash.com/photo-1596751249911-3c8b41f237f3?w=400&h=250&fit=crop" alt="Jungle ATV Tour">
+                    <img src="https://images.unsplash.com/photo-1596751249911-3c8b41f237f3?w=400&h=250&fit=crop" alt="Jungle ATV Tour" loading="lazy" decoding="async">
                     <div class="card-content">
                         <h3>Jungle ATV Adventures</h3>
                         <p>Get your adrenaline pumping as you ride powerful ATVs through muddy jungle trails, remote villages, and scenic landscapes.</p>
@@ -464,7 +598,7 @@
                 </div>
 
                 <div class="card">
-                    <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=400&h=250&fit=crop" alt="Cave Tubing Tour">
+                    <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=400&h=250&fit=crop" alt="Cave Tubing Tour" loading="lazy" decoding="async">
                     <div class="card-content">
                         <h3>Cave Tubing</h3>
                         <p>Float on inner tubes through spectacular underground river systems. Discover ancient Maya caves, stalactites, and hidden chambers.</p>
@@ -475,7 +609,7 @@
                 </div>
 
                 <div class="card">
-                    <img src="https://images.unsplash.com/photo-1504620577606-b33c76365b99?w=400&h=250&fit=crop" alt="Ziplining Tour">
+                    <img src="https://images.unsplash.com/photo-1504620577606-b33c76365b99?w=400&h=250&fit=crop" alt="Ziplining Tour" loading="lazy" decoding="async">
                     <div class="card-content">
                         <h3>Jungle Ziplining</h3>
                         <p>Fly through the jungle canopy on a series of thrilling ziplines. Get a bird's-eye view of the rainforest and experience an incredible rush!</p>
@@ -486,7 +620,7 @@
                 </div>
 
                 <div class="card">
-                    <img src="https://images.unsplash.com/photo-1500331882312-3663080d191a?w=400&h=250&fit=crop" alt="Waterfall Hike">
+                    <img src="https://images.unsplash.com/photo-1500331882312-3663080d191a?w=400&h=250&fit=crop" alt="Waterfall Hike" loading="lazy" decoding="async">
                     <div class="card-content">
                         <h3>Waterfall Hikes & Swims</h3>
                         <p>Hike to stunning, secluded waterfalls hidden in the jungle. Swim in the refreshing pools and enjoy a perfect natural escape.</p>
@@ -497,7 +631,7 @@
                 </div>
 
                 <div class="card">
-                    <img src="https://images.unsplash.com/photo-1588621123999-23a316b12d7f?w=400&h=250&fit=crop" alt="River Tubing">
+                    <img src="https://images.unsplash.com/photo-1588621123999-23a316b12d7f?w=400&h=250&fit=crop" alt="River Tubing" loading="lazy" decoding="async">
                     <div class="card-content">
                         <h3>Relaxing River Tubing</h3>
                         <p>A calm adventure perfect for all ages. Float down a gentle river, surrounded by lush jungle scenery and local wildlife. (Different from cave tubing!)</p>
@@ -508,7 +642,7 @@
                 </div>
 
                 <div class="card">
-                    <img src="https://images.unsplash.com/photo-1542382257-80ded83d20f6?w=400&h=250&fit=crop" alt="Guided Hike">
+                    <img src="https://images.unsplash.com/photo-1542382257-80ded83d20f6?w=400&h=250&fit=crop" alt="Guided Hike" loading="lazy" decoding="async">
                     <div class="card-content">
                         <h3>Guided Hikes (Nature/Night/Birding)</h3>
                         <p>Explore the jungle with an expert guide. Choose from a nature hike, a thrilling night hike, or a specialized bird-watching tour.</p>
@@ -539,7 +673,7 @@
                     <p>This hands-on cultural experience is often found in Maya villages like Maya Center or in the Toledo district.</p>
                 </div>
                 <div class="feature-image">
-                    <img src="https://images.unsplash.com/photo-1606011388484-7864835e07a3?w=600&h=400&fit=crop" alt="Cacao pods and chocolate">
+                    <img src="https://images.unsplash.com/photo-1606011388484-7864835e07a3?w=600&h=400&fit=crop" alt="Cacao pods and chocolate" loading="lazy" decoding="async">
                 </div>
             </div>
         </div>
@@ -611,10 +745,10 @@
             <div class="card-container">
 
                 <div class="card">
-                    <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=400&h=250&fit=crop" alt="Airport Shuttle">
+                    <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=400&h=250&fit=crop" alt="Airport Shuttle" loading="lazy" decoding="async">
                     <div class="card-content">
                         <h3>Airport & Hotel Transfers</h3>
-                        <p>Reliable, air-conditioned transport from BZE Airport to your hotel. We specialize in routes to **Placencia, Hopkins,** San Ignacio, and Belize City.</p>
+                        <p>Reliable, air-conditioned transport from BZE Airport to your hotel. We specialize in routes to <strong>Placencia, Hopkins,</strong> San Ignacio, and Belize City.</p>
                         <div class="card-buttons">
                             <a href="#booking" class="btn-secondary">Book Now</a>
                         </div>
@@ -633,7 +767,7 @@
                 </div>
 
                 <div class="card">
-                     <img src="https://images.unsplash.com/photo-1580541631950-7282082b53ce?w=400&h=250&fit=crop" alt="Water Taxi">
+                     <img src="https://images.unsplash.com/photo-1580541631950-7282082b53ce?w=400&h=250&fit=crop" alt="Water Taxi" loading="lazy" decoding="async">
                     <div class="card-content">
                         <h3>Water Taxi (Belize City to Caye Caulker)</h3>
                         <p>The fastest and most scenic way to get to the islands. We can book your tickets for multiple daily departures.</p>
@@ -661,43 +795,65 @@
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script>
-        (function() {
-            // Keys have been added here:
-            emailjs.init("R6CkF2imVksgg5t1I");
-        })();
+        // Micro interactions: reveal on scroll
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(e => {
+            if (e.isIntersecting) e.target.classList.add('in-view');
+          });
+        }, { threshold: 0.12 });
+        document.querySelectorAll('.reveal, .card, .feature-image img').forEach(el => observer.observe(el));
 
+        // Booking form: EmailJS if configured, otherwise mailto fallback
         document.addEventListener('DOMContentLoaded', function() {
-            const bookingForm = document.getElementById('booking-form-cave');
-            const formMessage = document.getElementById('form-message-cave');
-            const submitBtn = bookingForm.querySelector('button[type="submit"]');
+          const bookingForm = document.getElementById('booking-form-cave');
+          const formMessage = document.getElementById('form-message-cave');
+          if (!bookingForm) return;
 
-            bookingForm.addEventListener('submit', function(event) {
-                event.preventDefault();
-                formMessage.textContent = "Sending request...";
-                formMessage.style.color = "#666";
-                if (submitBtn) submitBtn.disabled = true;
-
-                // CORRECTED SERVICE ID HERE:
-                const serviceID = "service_4bgy7jn";
-                // Template ID is correct from last time:
-                const templateID = "template_90fdphu";
-
-                emailjs.sendForm(serviceID, templateID, this)
-                    .then(function() {
-                        formMessage.textContent = "✓ Success! We will contact you shortly.";
-                        formMessage.style.color = "#27ae60";
-                        bookingForm.reset();
-                    }, function(error) {
-                        formMessage.textContent = "✗ Error: Could not send request. Please try again.";
-                        formMessage.style.color = "#e74c3c";
-                        console.log('FAILED...', error); // Check browser console for detailed error
-                    })
-                    .finally(function() {
-                        if (submitBtn) submitBtn.disabled = false;
-                    });
+          function buildMailtoUrl(data) {
+            const params = new URLSearchParams({
+              subject: `Booking Request: ${data.get('user_tour') || 'Tour'}`,
+              body: [
+                `Name: ${data.get('user_name')}`,
+                `Email: ${data.get('user_email')}`,
+                `Phone: ${data.get('user_phone') || '-'}`,
+                `Tour: ${data.get('user_tour')}`,
+                `Date: ${data.get('user_date')}`
+              ].join('\n')
             });
+            return `mailto:info@belizevacationtour.com?${params.toString()}`;
+          }
+
+          bookingForm.addEventListener('submit', async function(event) {
+            event.preventDefault();
+            const data = new FormData(bookingForm);
+            formMessage.textContent = 'Sending request...';
+            formMessage.style.color = '#666';
+
+            const hasEmailJS = typeof emailjs !== 'undefined' &&
+                               typeof emailjs.sendForm === 'function' &&
+                               typeof emailjs.init === 'function' &&
+                               window.EMAILJS_PUBLIC_KEY && window.EMAILJS_SERVICE_ID && window.EMAILJS_TEMPLATE_ID;
+
+            if (hasEmailJS) {
+              try {
+                emailjs.init(window.EMAILJS_PUBLIC_KEY);
+                await emailjs.sendForm(window.EMAILJS_SERVICE_ID, window.EMAILJS_TEMPLATE_ID, bookingForm);
+                formMessage.textContent = '✓ Success! We will contact you shortly.';
+                formMessage.style.color = '#27ae60';
+                bookingForm.reset();
+              } catch (err) {
+                console.error('EmailJS failed, falling back to mailto', err);
+                window.location.href = buildMailtoUrl(data);
+                formMessage.textContent = 'Opening your email app...';
+                formMessage.style.color = '#27ae60';
+              }
+            } else {
+              window.location.href = buildMailtoUrl(data);
+              formMessage.textContent = 'Opening your email app...';
+              formMessage.style.color = '#27ae60';
+            }
+          });
         });
     </script>
 
