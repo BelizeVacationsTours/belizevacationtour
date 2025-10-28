@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jaguar Preserve Tours and Transfers - Belize Adventures</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: #2c3e50;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: #fff;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #3498db;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #fff;
+            color: #667eea;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Content Sections */
+        .content-section {
+            padding: 60px 20px;
+        }
+
+        .content-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #2c3e50;
+        }
+
+        .bg-light {
+            background: #f8f9fa;
+        }
+
+        /* Feature Section Style (for Jaguar Preserve & Chocolate) */
+        .feature-container {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .feature-content, .feature-image {
+            flex: 1;
+        }
+
+        .feature-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .feature-content h3 {
+            font-size: 1.8rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .feature-content p {
+            margin-bottom: 1rem;
+            color: #555;
+        }
+
+        .feature-content ul {
+            list-style-position: inside;
+            margin-left: 10px;
+            color: #555;
+        }
+         .feature-content ul li {
+            margin-bottom: 0.5rem;
+         }
+
+        /* Cards */
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-content h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .card-content p {
+            color: #666;
+            flex-grow: 1;
+            margin-bottom: 20px;
+        }
+
+        /* NEW: Container for card buttons */
+        .card-buttons {
+            display: flex;
+            gap: 10px; /* Space between buttons */
+            margin-top: auto; /* Pushes buttons to the bottom */
+        }
+
+        .btn-secondary {
+            display: inline-block;
+            padding: 10px 30px;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+            text-align: center;
+        }
+
+        .btn-secondary:hover {
+            background: #2980b9;
+        }
+
+        /* NEW: Style for the 'Learn More' button */
+        .btn-learn-more {
+            background: #fff;
+            color: #3498db;
+            border: 2px solid #3498db;
+        }
+
+        .btn-learn-more:hover {
+            background: #f4f4f4;
+            color: #2980b9;
+        }
+
+
+        /* Booking Form */
+        #booking-form-cave {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: #2c3e50;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+
+        button[type="submit"] {
+            width: 100%;
+            padding: 15px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button[type="submit"]:hover {
+            background: #764ba2;
+        }
+
+        button[type="submit"]:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        #form-message-cave {
+            margin-top: 20px;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        /* Calendar Section */
+        .calendar-section {
+            text-align: center;
+        }
+
+        .calendar-section iframe {
+            max-width: 100%;
+            border: solid 1px #ddd;
+            border-radius: 10px;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .navbar .container {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            .nav-links {
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            .feature-container {
+                flex-direction: column;
+            }
+
+            .card-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <a href="index.html" class="logo">Jaguar Preserve Tours and Transfers</a>
+                <ul class="nav-links">
+                    <li><a href="#preserve">Jaguar Preserve</a></li>
+                    <li><a href="#tours">All Tours</a></li>
+                    <li><a href="#transport">Transfers</a></li>
+                    <li><a href="#chocolate">Chocolate Tour</a></li>
+                    <li><a href="#booking">Book Now</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Discover the Best of Belize</h1>
+            <p>Your adventure starts here. Book tours, shuttles, and unique experiences.</p>
+            <a href="#tours" class="cta-button">See All Tours</a>
+        </div>
+    </section>
+
+    <section id="preserve" class="content-section">
+        <div class="container">
+            <h2>Cockscomb Basin Wildlife Sanctuary</h2>
+            <div class="feature-container">
+                <div class="feature-image">
+                    <img src="https://images.unsplash.com/photo-1547966746-320b5a19c63b?w=600&h=400&fit=crop" alt="Jaguar in the jungle">
+                </div>
+                <div class="feature-content">
+                    <p>The Cockscomb Basin Wildlife Sanctuary is the **world's first jaguar preserve** in Belize, protecting over 128,000 acres of rainforest. It offers visitors hiking trails, river tubing, and waterfall visits, and is home to jaguars, tapirs, and hundreds of bird species. While the sanctuary is a jaguar hotspot, seeing one is unlikely due to their elusive nature.</p>
+
+                    <h3>What the Preserve Offers</h3>
+                    <ul>
+                        <li><strong>Wildlife:</strong> A habitat for an estimated 80 jaguars, tapirs, peccaries, and coatis. It has over 290 recorded bird species, including Scarlet Macaws and Keel-billed Toucans.</li>
+                        <li><strong>Activities:</strong> Explore numerous well-marked hiking trails (easy to challenging), go tubing down the river, or hike to waterfalls. Bird watching is a popular activity.</li>
+                        <li><strong>Plant life:</strong> Home to diverse plant species, including orchids, ferns, and hardwoods like mahogany and Ceiba trees.</li>
+                    </ul>
+
+                    <h3>Planning Your Visit</h3>
+                    <ul>
+                        <li><strong>Location:</strong> Accessed from the Southern Highway, about 20 miles south of Dangriga.</li>
+                        <li><strong>Amenities:</strong> A visitor center and a gift shop are near the entrance. Rustic cabins are available, but it is best to bring your own food.</li>
+                        <li><strong>What to bring:</strong> Pack sturdy shoes, insect repellent, sunscreen, and plenty of water.</li>
+                        <li><strong>Regulations:</strong> Stay on marked trails, no pets, and do not use soaps in the rivers.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tours" class="content-section bg-light">
+        <div class="container">
+            <h2>Our Adventures & Cultural Tours</h2>
+            <div class="card-container">
+
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1547966746-320b5a19c63b?w=400&h=250&fit=crop" alt="Jaguar Preserve Tour">
+                    <div class="card-content">
+                        <h3>Jaguar Preserve Tour (Cockscomb)</h3>
+                        <p>Hike the trails of the world's only Jaguar Preserve. Explore waterfalls, see exotic wildlife, and tube down the river in this massive sanctuary.</p>
+                        <div class="card-buttons">
+                            <a href="#booking" class="btn-secondary">Book Now</a>
+                            <a href="#preserve" class="btn-secondary btn-learn-more">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=400&h=250&fit=crop" alt="Maya Ruins Tour">
+                    <div class="card-content">
+                        <h3>Mayan Ruin Expedition</h3>
+                        <p>Step back in time at magnificent Maya archaeological sites like Xunantunich or Caracol. Climb ancient temples and learn about a lost civilization.</p>
+                        <div class="card-buttons">
+                            <a href="#booking" class="btn-secondary">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1589922585993-218e83311f2c?w=400&h=250&fit=crop" alt="Belize Zoo Tour">
+                    <div class="card-content">
+                        <h3>The Belize Zoo</h3>
+                        <p>Visit "the best little zoo in the world." See native Belizean animals, including jaguars, tapirs, toucans, and monkeys, in natural-style habitats.</p>
+                        <div class="card-buttons">
+                            <a href="#booking" class="btn-secondary">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1558550341-26f286826c48?w=400&h=250&fit=crop" alt="Chocolate Making Tour">
+                    <div class="card-content">
+                        <h3>Mayan Chocolate Making</h3>
+                        <p>A hands-on cultural tour. Learn the traditional process from bean to bar. Roast, grind, and make your own chocolate the way the Mayas did.</p>
+                        <div class="card-buttons">
+                            <a href="#booking" class="btn-secondary">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1596751249911-3c8b41f237f3?w=400&h=250&fit=crop" alt="Jungle ATV Tour">
+                    <div class="card-content">
+                        <h3>Jungle ATV Adventures</h3>
+                        <p>Get your adrenaline pumping as you ride powerful ATVs through muddy jungle trails, remote villages, and scenic landscapes.</p>
+                        <div class="card-buttons">
+                            <a href="#booking" class="btn-secondary">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=400&h=250&fit=crop" alt="Cave Tubing Tour">
+                    <div class="card-content">
+                        <h3>Cave Tubing</h3>
+                        <p>Float on inner tubes through spectacular underground river systems. Discover ancient Maya caves, stalactites, and hidden chambers.</p>
+                        <div class="card-buttons">
+                            <a href="#booking" class="btn-secondary">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1504620577606-b33c76365b99?w=400&h=250&fit=crop" alt="Ziplining Tour">
+                    <div class="card-content">
+                        <h3>Jungle Ziplining</h3>
+                        <p>Fly through the jungle canopy on a series of thrilling ziplines. Get a bird's-eye view of the rainforest and experience an incredible rush!</p>
+                        <div class="card-buttons">
+                            <a href="#booking" class="btn-secondary">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1500331882312-3663080d191a?w=400&h=250&fit=crop" alt="Waterfall Hike">
+                    <div class="card-content">
+                        <h3>Waterfall Hikes & Swims</h3>
+                        <p>Hike to stunning, secluded waterfalls hidden in the jungle. Swim in the refreshing pools and enjoy a perfect natural escape.</p>
+                        <div class="card-buttons">
+                            <a href="#booking" class="btn-secondary">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1588621123999-23a316b12d7f?w=400&h=250&fit=crop" alt="River Tubing">
+                    <div class="card-content">
+                        <h3>Relaxing River Tubing</h3>
+                        <p>A calm adventure perfect for all ages. Float down a gentle river, surrounded by lush jungle scenery and local wildlife. (Different from cave tubing!)</p>
+                        <div class="card-buttons">
+                            <a href="#booking" class="btn-secondary">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1542382257-80ded83d20f6?w=400&h=250&fit=crop" alt="Guided Hike">
+                    <div class="card-content">
+                        <h3>Guided Hikes (Nature/Night/Birding)</h3>
+                        <p>Explore the jungle with an expert guide. Choose from a nature hike, a thrilling night hike, or a specialized bird-watching tour.</p>
+                        <div class="card-buttons">
+                            <a href="#booking" class="btn-secondary">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="chocolate" class="content-section">
+        <div class="container">
+            <h2>Traditional Mayan Chocolate Making</h2>
+            <div class="feature-container">
+                <div class="feature-content">
+                    <p>Chocolate making in Belize involves a traditional process that begins with organic cacao beans, which are harvested, fermented, and sun-dried. Guests can participate in hands-on experiences, roasting the beans on a clay griddle, grinding them on a stone grinder (metate), and then creating their own chocolate by adding sugar and other ingredients. This is often presented as an educational and cultural tour focusing on Mayan traditions.</p>
+
+                    <h3>The Traditional Process</h3>
+                    <ul>
+                        <li><strong>Harvesting & Fermenting:</strong> Cacao pods are harvested, cracked open, and the beans are fermented to develop flavor.</li>
+                        <li><strong>Drying & Roasting:</strong> Beans are sun-dried and then roasted by participants on a traditional clay griddle (comal).</li>
+                        <li><strong>Shelling & Grinding:</strong> The shells are separated, and the inner cacao nibs are ground into a paste on a stone metate.</li>
+                        <li><strong>Finishing:</strong> Sugar and other ingredients are added to the paste, which is then shaped into chocolate bars for you to sample!</li>
+                    </ul>
+                    <p>This hands-on cultural experience is often found in Maya villages like Maya Center or in the Toledo district.</p>
+                </div>
+                <div class="feature-image">
+                    <img src="https://images.unsplash.com/photo-1606011388484-7864835e07a3?w=600&h=400&fit=crop" alt="Cacao pods and chocolate">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="booking" class="content-section bg-light">
+        <div class="container">
+            <h2>Book Your Tour or Transfer</h2>
+            <form id="booking-form-cave">
+                <div class="form-group">
+                    <label for="user_name">Full Name *</label>
+                    <input type="text" id="user_name" name="user_name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="user_email">Email Address *</label>
+                    <input type="email" id="user_email" name="user_email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="user_phone">Phone Number</label>
+                    <input type="tel" id="user_phone" name="user_phone">
+                </div>
+
+                <div class="form-group">
+                    <label for="user_tour">Select Tour / Transfer *</label>
+                    <select id="user_tour" name="user_tour" required>
+                        <option value="">Choose an activity...</option>
+                        <optgroup label="Main Tours">
+                            <option value="Jaguar Preserve Tour (Cockscomb)">Jaguar Preserve Tour (Cockscomb)</option>
+                            <option value="Mayan Ruin Expedition">Mayan Ruin Expedition</option>
+                            <option value="Belize Zoo">The Belize Zoo</option>
+                            <option value="Mayan Chocolate Making">Mayan Chocolate Making</option>
+                        </optgroup>
+                        <optgroup label="Adventure Tours">
+                            <option value="Jungle ATV Adventure">Jungle ATV Adventure</option>
+                            <option value="Cave Tubing">Cave Tubing</option>
+                            <option value="Jungle Ziplining">Jungle Ziplining</option>
+                            <option value="River Tubing (Gentle)">River Tubing (Gentle)</option>
+                            <option value="Waterfall Hike & Swim">Waterfall Hike & Swim</option>
+                        </optgroup>
+                        <optgroup label="Guided Hikes">
+                            <option value="Guided Nature Hike">Guided Nature Hike</option>
+                            <option value="Guided Night Hike">Guided Night Hike</option>
+                            <option value="Bird Watching Tour">Bird Watching Tour</option>
+                        </optgroup>
+                        <optgroup label="Transfers">
+                            <option value="Airport/Hotel Transfer">Airport/Hotel Transfer (Placencia, Hopkins, etc.)</option>
+                            <option value="Private Shuttle">Private Shuttle (Custom)</option>
+                            <option value="Water Taxi (Belize City to Caye Caulker)">Water Taxi (Belize City to Caye Caulker)</option>
+                        </optgroup>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="user_date">Preferred Date *</label>
+                    <input type="date" id="user_date" name="user_date" required>
+                </div>
+
+                <button type="submit">Send Booking Request</button>
+            </form>
+            <p id="form-message-cave"></p>
+        </div>
+    </section>
+
+    <section id="transport" class="content-section">
+        <div class="container">
+            <h2>Transportation & Transfers</h2>
+            <div class="card-container">
+
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=400&h=250&fit=crop" alt="Airport Shuttle">
+                    <div class="card-content">
+                        <h3>Airport & Hotel Transfers</h3>
+                        <p>Reliable, air-conditioned transport from BZE Airport to your hotel. We specialize in routes to **Placencia, Hopkins,** San Ignacio, and Belize City.</p>
+                        <div class="card-buttons">
+                            <a href="#booking" class="btn-secondary">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1617109848595-17a6d2b31f7c?w=400&h=250&fit=crop" alt="Private Shuttle in Belize">
+                    <div class="card-content">
+                        <h3>Private Shuttles</h3>
+                        <p>Go anywhere, anytime. We offer private transfers throughout Belize, perfect for groups and custom itineraries to any destination.</p>
+                        <div class="card-buttons">
+                            <a href="#booking" class="btn-secondary">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                     <img src="https://images.unsplash.com/photo-1580541631950-7282082b53ce?w=400&h=250&fit=crop" alt="Water Taxi">
+                    <div class="card-content">
+                        <h3>Water Taxi (Belize City to Caye Caulker)</h3>
+                        <p>The fastest and most scenic way to get to the islands. We can book your tickets for multiple daily departures.</p>
+                        <div class="card-buttons">
+                            <a href="#booking" class="btn-secondary">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="calendar" class="content-section calendar-section bg-light">
+        <div class="container">
+            <h2>Tour Availability Calendar</h2>
+            <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FBelize&showPrint=0&src=ZW4udXNhI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&color=%230b8043" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <p>&copy; 2025 Jaguar Preserve Tours and Transfers. All rights reserved.</p>
+            <p>Visit us at: <a href="https://www.belizevacationtour.com" style="color: #3498db;">www.belizevacationtour.com</a></p>
+            <p>Email: info@belizevacationtour.com | Phone: +501-633-4000</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        (function() {
+            // Keys have been added here:
+            emailjs.init("R6CkF2imVksgg5t1I");
+        })();
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const bookingForm = document.getElementById('booking-form-cave');
+            const formMessage = document.getElementById('form-message-cave');
+            const submitBtn = bookingForm.querySelector('button[type="submit"]');
+
+            bookingForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+                formMessage.textContent = "Sending request...";
+                formMessage.style.color = "#666";
+                if (submitBtn) submitBtn.disabled = true;
+
+                // Keys have been added here:
+                const serviceID = "4bqy7jn";
+                // TEMPLATE ID CORRECTED HERE
+                const templateID = "template_90fdphu";
+
+                emailjs.sendForm(serviceID, templateID, this)
+                    .then(function() {
+                        formMessage.textContent = "✓ Success! We will contact you shortly.";
+                        formMessage.style.color = "#27ae60";
+                        bookingForm.reset();
+                    }, function(error) {
+                        formMessage.textContent = "✗ Error: Could not send request. Please try again.";
+                        formMessage.style.color = "#e74c3c";
+                        console.log('FAILED...', error);
+                    })
+                    .finally(function() {
+                        if (submitBtn) submitBtn.disabled = false;
+                    });
+            });
+        });
+    </script>
+
+</body>
+</html>
