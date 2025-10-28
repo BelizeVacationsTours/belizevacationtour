@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore Belize with expert-guided tours to Cockscomb Jaguar Preserve, Maya ruins, chocolate making, and reliable airport transfers throughout Belize.">
+    <title>Jaguar Preserve Tours - Belize Adventures</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='%232c3e50'/><circle cx='35' cy='40' r='5' fill='white'/><circle cx='65' cy='40' r='5' fill='white'/></svg>">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2c3e50;
+            --accent: #3498db;
+            --success: #27ae60;
+            --gradient-1: #667eea;
+            --gradient-2: #764ba2;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        /* Navbar */
+        nav {
+            position: sticky;
+            top: 0;
+            background: var(--primary);
+            padding: 1rem 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: transform 0.3s;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .btn {
+            background: var(--accent);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2));
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+
+        .btn-outline:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--gradient-1) 0%, var(--gradient-2) 100%);
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><path d="M0,300 Q300,100 600,300 T1200,300 L1200,600 L0,600 Z" fill="rgba(0,0,0,0.1)"/></svg>');
+            background-size: cover;
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            animation: fadeInUp 1s ease 0.2s backwards;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            animation: fadeInUp 1s ease 0.4s backwards;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease 0.6s backwards;
+        }
+
+        .trust-badge {
+            margin-top: 3rem;
+            display: inline-block;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 15px 30px;
+            border-radius: 50px;
+            border: 1px solid rgba(255,255,255,0.2);
+            animation: pulse 2s infinite;
+        }
+
+        /* Trust Badges Section */
+        .trust-badges {
+            padding: 60px 20px;
+            background: white;
+        }
+
+        .badge-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .badge {
+            padding: 20px;
+            transition: transform 0.3s;
+        }
+
+        .badge:hover {
+            transform: translateY(-5px);
+        }
+
+        .badge-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 15px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        /* Tours Section */
+        .tours {
+            padding: 80px 20px;
+            background: #f8f9fa;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--primary);
+        }
+
+        .tour-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .tour-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+
+        .tour-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .tour-image {
+            width: 100%;
+            height: 200px;
+        }
+
+        .tour-content {
+            padding: 25px;
+        }
+
+        .tour-title {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .tour-meta {
+            display: flex;
+            gap: 15px;
+            margin: 15px 0;
+            flex-wrap: wrap;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .price {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--success);
+            margin: 15px 0;
+        }
+
+        .difficulty {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .difficulty-easy { background: #d4edda; color: #155724; }
+        .difficulty-moderate { background: #fff3cd; color: #856404; }
+        .difficulty-challenging { background: #f8d7da; color: #721c24; }
+
+        /* Booking Form */
+        .booking {
+            padding: 80px 20px;
+            background: white;
+        }
+
+        .booking-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2));
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Success Message */
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 40px;
+            background: #d4edda;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            animation: fadeInUp 0.5s;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 80px 20px;
+            background: #f8f9fa;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .testimonial::before {
+            content: '"';
+            font-size: 4rem;
+            color: var(--accent);
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            opacity: 0.2;
+        }
+
+        .stars {
+            color: #f39c12;
+            margin-bottom: 15px;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .testimonial-author {
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 80px 20px;
+            background: white;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: white;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            width: 100%;
+            text-align: left;
+            padding: 20px;
+            background: white;
+            border: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s;
+        }
+
+        .faq-question:hover {
+            background: #f8f9fa;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0 20px;
+            color: #666;
+        }
+
+        .faq-answer.active {
+            max-height: 500px;
+            padding: 0 20px 20px 20px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 60px 20px 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+
+        .footer-section a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.6);
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 999;
+            text-decoration: none;
+            transition: transform 0.3s;
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--primary);
+                flex-direction: column;
+                padding: 20px;
+                gap: 0;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 10px 0;
+            }
+
+            .tour-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="nav-content">
+                <a href="#" class="logo">
+                    <svg width="30" height="30" viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="40" fill="white"/>
+                        <circle cx="35" cy="40" r="5" fill="#2c3e50"/>
+                        <circle cx="65" cy="40" r="5" fill="#2c3e50"/>
+                        <path d="M 30 60 Q 50 75 70 60" stroke="#2c3e50" fill="none" stroke-width="3"/>
+                    </svg>
+                    Jaguar Preserve Tours
+                </a>
+                <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#tours">Tours</a></li>
+                    <li><a href="#testimonials">Reviews</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#booking" class="btn">Book Now</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Discover the Best of Belize</h1>
+            <p>Expert-guided adventures through jaguars, Maya ruins, and pristine rainforests</p>
+            <div class="hero-buttons">
+                <a href="#tours" class="btn btn-primary">Explore Tours</a>
+                <a href="tel:+5016334000" class="btn btn-outline">📞 Call Us Now</a>
+            </div>
+            <div class="trust-badge">
+                ⭐ 100+ Five-Star Reviews • Licensed Tour Operators
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Badges -->
+    <section class="trust-badges">
+        <div class="container">
+            <div class="badge-grid">
+                <div class="badge">
+                    <svg class="badge-icon" viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="40" fill="#3498db" opacity="0.2"/>
+                        <path d="M50 20 L60 40 L80 45 L65 60 L68 80 L50 70 L32 80 L35 60 L20 45 L40 40 Z" fill="#3498db"/>
+                    </svg>
+                    <h3>Licensed & Insured</h3>
+                </div>
+                <div class="badge">
+                    <svg class="badge-icon" viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="40" fill="#27ae60" opacity="0.2"/>
+                        <path d="M30 50 L45 65 L70 35" stroke="#27ae60" stroke-width="8" fill="none" stroke-linecap="round"/>
+                    </svg>
+                    <h3>Expert Local Guides</h3>
+                </div>
+                <div class="badge">
+                    <svg class="badge-icon" viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="40" fill="#f39c12" opacity="0.2"/>
+                        <path d="M50 20 L60 40 L80 45 L65 60 L68 80 L50 70 L32 80 L35 60 L20 45 L40 40 Z" fill="#f39c12"/>
+                    </svg>
+                    <h3>5-Star Reviews</h3>
+                </div>
+                <div class="badge">
+                    <svg class="badge-icon" viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="40" fill="#2ecc71" opacity="0.2"/>
+                        <path d="M50 20 Q35 30 35 45 Q35 60 50 80 Q65 60 65 45 Q65 30 50 20 Z" fill="#2ecc71"/>
+                    </svg>
+                    <h3>Eco-Friendly Tours</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tours Section -->
+    <section id="tours" class="tours">
+        <div class="container">
+            <h2 class="section-title">Our Adventures & Cultural Tours</h2>
+            <div class="tour-grid">
+                <!-- Tour Card 1 -->
+                <div class="tour-card">
+                    <svg class="tour-image" viewBox="0 0 400 200">
+                        <rect width="400" height="200" fill="#2d5016"/>
+                        <circle cx="200" cy="100" r="30" fill="#d4a574"/>
+                        <circle cx="190" cy="95" r="3" fill="#000"/>
+                        <circle cx="210" cy="95" r="3" fill="#000"/>
+                        <path d="M 150 120 Q 200 100 250 120" fill="#654321" opacity="0.3"/>
+                        <text x="200" y="180" text-anchor="middle" fill="white" font-size="14">Jaguar in Jungle</text>
+                    </svg>
+                    <div class="tour-content">
+                        <h3 class="tour-title">Jaguar Preserve Tour</h3>
+                        <p>Hike the trails of the world's only Jaguar Preserve. Explore waterfalls and see exotic wildlife.</p>
+                        <div class="tour-meta">
+                            <span>⏱️ 6-8 hours</span>
+                            <span class="difficulty difficulty-moderate">Moderate</span>
+                        </div>
+                        <div class="price">$85 <small>/person</small></div>
+                        <p style="font-size: 0.9rem; color: #666;">✓ Guide, lunch, equipment, park fees</p>
+                        <a href="#booking" class="btn" style="margin-top: 15px; display: inline-block;">Book Now</a>
+                    </div>
+                </div>
+
+                <!-- Tour Card 2 -->
+                <div class="tour-card">
+                    <svg class="tour-image" viewBox="0 0 400 200">
+                        <rect width="400" height="200" fill="#87CEEB"/>
+                        <rect x="150" y="80" width="100" height="80" fill="#8B4513"/>
+                        <polygon points="150,80 200,40 250,80" fill="#654321"/>
+                        <rect x="180" y="120" width="40" height="40" fill="#2c3e50"/>
+                        <text x="200" y="180" text-anchor="middle" fill="#2c3e50" font-size="14">Maya Temple</text>
+                    </svg>
+                    <div class="tour-content">
+                        <h3 class="tour-title">Maya Ruins Tour</h3>
+                        <p>Climb ancient Maya temples and explore ceremonial plazas with expert guides.</p>
+                        <div class="tour-meta">
+                            <span>⏱️ 5-6 hours</span>
+                            <span class="difficulty difficulty-easy">Easy</span>
+                        </div>
+                        <div class="price">$75 <small>/person</small></div>
+                        <p style="font-size: 0.9rem; color: #666;">✓ Guide, lunch, entrance fees</p>
+                        <a href="#booking" class="btn" style="margin-top: 15px; display: inline-block;">Book Now</a>
+                    </div>
+                </div>
+
+                <!-- Tour Card 3 -->
+                <div class="tour-card">
+                    <svg class="tour-image" viewBox="0 0 400 200">
+                        <rect width="400" height="200" fill="#8B4513"/>
+                        <ellipse cx="200" cy="120" rx="60" ry="40" fill="#654321"/>
+                        <circle cx="180" cy="100" r="20" fill="#fff"/>
+                        <circle cx="220" cy="100" r="20" fill="#fff"/>
+                        <text x="200" y="180" text-anchor="middle" fill="white" font-size="14">Chocolate Making</text>
+                    </svg>
+                    <div class="tour-content">
+                        <h3 class="tour-title">Chocolate Making Experience</h3>
+                        <p>Learn traditional Maya chocolate-making from bean to bar.</p>
+                        <div class="tour-meta">
+                            <span>⏱️ 3-4 hours</span>
+                            <span class="difficulty difficulty-easy">Easy</span>
+                        </div>
+                        <div class="price">$65 <small>/person</small></div>
+                        <p style="font-size: 0.9rem; color: #666;">✓ Guide, materials, samples</p>
+                        <a href="#booking" class="btn" style="margin-top: 15px; display: inline-block;">Book Now</a>
+                    </div>
+                </div>
+
+                <!-- Tour Card 4 -->
+                <div class="tour-card">
+                    <svg class="tour-image" viewBox="0 0 400 200">
+                        <rect width="400" height="200" fill="#1a1a1a"/>
+                        <ellipse cx="200" cy="100" rx="80" ry="60" fill="#4a4a4a"/>
+                        <circle cx="200" cy="100" r="30" fill="#6a9fb5"/>
+                        <text x="200" y="180" text-anchor="middle" fill="white" font-size="14">ATM Cave</text>
+                    </svg>
+                    <div class="tour-content">
+                        <h3 class="tour-title">ATM Cave Tour</h3>
+                        <p>Adventure through mystical caves with underground rivers and Maya artifacts.</p>
+                        <div class="tour-meta">
+                            <span>⏱️ Full day</span>
+                            <span class="difficulty difficulty-challenging">Challenging</span>
+                        </div>
+                        <div class="price">$120 <small>/person</small></div>
+                        <p style="font-size: 0.9rem; color: #666;">✓ Guide, lunch, all equipment</p>
+                        <a href="#booking" class="btn" style="margin-top: 15px; display: inline-block;">Book Now</a>
+                    </div>
+                </div>
+
+                <!-- Tour Card 5 -->
+                <div class="tour-card">
+                    <svg class="tour-image" viewBox="0 0 400 200">
+                        <rect width="400" height="200" fill="#4682B4"/>
+                        <path d="M 0 150 Q 100 130 200 150 T 400 150 L 400 200 L 0 200 Z" fill="#5F9EA0"/>
+                        <rect x="180" y="100" width="40" height="80" fill="#6a9fb5"/>
+                        <path d="M 150 80 Q 200 50 250 80" fill="white" opacity="0.5"/>
+                        <text x="200" y="190" text-anchor="middle" fill="white" font-size="14">Waterfall & Tubing</text>
+                    </svg>
+                    <div class="tour-content">
+                        <h3 class="tour-title">Waterfalls & River Tubing</h3>
+                        <p>Hike to pristine waterfalls and enjoy relaxing river tubing through the jungle.</p>
+                        <div class="tour-meta">
+                            <span>⏱️ 4-5 hours</span>
+                            <span class="difficulty difficulty-moderate">Moderate</span>
+                        </div>
+                        <div class="price">$70 <small>/person</small></div>
+                        <p style="font-size: 0.9rem; color: #666;">✓ Guide, tubes, life jackets</p>
+                        <a href="#booking" class="btn" style="margin-top: 15px; display: inline-block;">Book Now</a>
+                    </div>
+                </div>
+
+                <!-- Tour Card 6 -->
+                <div class="tour-card">
+                    <svg class="tour-image" viewBox="0 0 400 200">
+                        <rect width="400" height="200" fill="#87CEEB"/>
+                        <circle cx="100" cy="60" r="25" fill="#FFD700"/>
+                        <polygon points="200,100 250,100 250,140 200,140" fill="#8B4513"/>
+                        <polygon points="200,100 225,70 250,100" fill="#654321"/>
+                        <circle cx="300" cy="120" r="20" fill="#2d5016"/>
+                        <text x="200" y="190" text-anchor="middle" fill="#2c3e50" font-size="14">Combo Adventure</text>
+                    </svg>
+                    <div class="tour-content">
+                        <h3 class="tour-title">Day Combo Tour</h3>
+                        <p>Experience the best of Belize! Visit Maya ruins and explore the jaguar preserve.</p>
+                        <div class="tour-meta">
+                            <span>⏱️ Full day</span>
+                            <span class="difficulty difficulty-moderate">Moderate</span>
+                        </div>
+                        <div class="price">$130 <small>/person</small></div>
+                        <p style="font-size: 0.9rem; color: #666;">✓ Guide, lunch, all fees</p>
+                        <a href="#booking" class="btn" style="margin-top: 15px; display: inline-block;">Book Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Form -->
+    <section id="booking" class="booking">
+        <div class="container">
+            <h2 class="section-title">Book Your Adventure</h2>
+            
+            <div id="successMessage" class="success-message">
+                <svg class="success-icon" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="45" fill="#27ae60"/>
+                    <path d="M 30 50 L 45 65 L 70 35" stroke="white" stroke-width="8" fill="none" stroke-linecap="round"/>
+                </svg>
+                <h3>Booking Request Received!</h3>
+                <p>Thank you for choosing Jaguar Preserve Tours. We'll contact you within 24 hours to confirm your adventure.</p>
+                <button class="btn" onclick="resetForm()">Book Another Tour</button>
+            </div>
+
+            <form id="bookingForm" class="booking-form" onsubmit="handleSubmit(event)">
+                <div class="form-group">
+                    <label for="name">Full Name *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number *</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="tour">Select Tour *</label>
+                    <select id="tour" name="tour" required>
+                        <option value="">Choose your adventure</option>
+                        <option value="jaguar-preserve">Jaguar Preserve Tour - $85/person</option>
+                        <option value="maya-ruins">Maya Ruins Tour - $75/person</option>
+                        <option value="chocolate">Chocolate Making - $65/person</option>
+                        <option value="atm-cave">ATM Cave Tour - $120/person</option>
+                        <option value="waterfalls">Waterfalls & Tubing - $70/person</option>
+                        <option value="combo">Day Combo Tour - $130/person</option>
+                        <option value="transfer">Airport Transfer</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="date">Preferred Date *</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="guests">Number of Guests *</label>
+                    <input type="number" id="guests" name="guests" min="1" max="20" value="1" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="requests">Special Requests (Optional)</label>
+                    <textarea id="requests" name="requests" rows="4" placeholder="Dietary restrictions, accessibility needs, etc."></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Submit Booking Request</button>
+                
+                <p style="text-align: center; margin-top: 15px; font-size: 0.85rem; color: #666;">
+                    By submitting, you agree to be contacted regarding your booking.
+                </p>
+            </form>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Our Guests Say</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"The Jaguar Preserve tour was absolutely incredible! Our guide was so knowledgeable and we saw amazing wildlife. Highly recommend!"</p>
+                    <p class="testimonial-author">Sarah & Mike Johnson</p>
+                    <p style="color: #999; font-size: 0.9rem;">Toronto, Canada</p>
+                </div>
+                <div class="testimonial">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"Best tour experience in Belize! The ATM cave tour was challenging but so worth it. Professional guides and great equipment."</p>
+                    <p class="testimonial-author">David Martinez</p>
+                    <p style="color: #999; font-size: 0.9rem;">Los Angeles, USA</p>
+                </div>
+                <div class="testimonial">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"The chocolate making experience was fascinating! Learning about Maya traditions while making our own chocolate was amazing."</p>
+                    <p class="testimonial-author">Emma Thompson</p>
+                    <p style="color: #999; font-size: 0.9rem;">London, UK</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        What should I bring on the tours?
+                        <span>+</span>
+                    </button>
+                    <div class="faq-answer">
+                        Bring sturdy hiking shoes, insect repellent, sunscreen, a hat, and plenty of water. For water-based tours, bring a change of clothes and towel. All specialized equipment is provided.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        Are tours suitable for children?
+                        <span>+</span>
+                    </button>
+                    <div class="faq-answer">
+                        Yes! Many tours are family-friendly. The Chocolate Making and Maya Ruins tours are perfect for kids. For challenging tours like ATM Cave, we recommend children be 8-10 years old. Contact us for specific recommendations.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        What is your cancellation policy?
+                        <span>+</span>
+                    </button>
+                    <div class="faq-answer">
+                        Cancellations 7+ days before receive full refund. Cancellations 3-6 days before receive 50% refund. Within 48 hours cannot be refunded. Weather-related cancellations receive full refunds or rescheduling.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        Do you provide hotel pickup?
+                        <span>+</span>
+                    </button>
+                    <div class="faq-answer">
+                        Yes! We offer pickup from most hotels in Hopkins, Placencia, and surrounding areas. Airport transfers available for additional fee. Please specify your location when booking.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Jaguar Preserve Tours</h3>
+                    <p>Expert-guided tours and reliable transportation throughout Belize.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="#tours">Our Tours</a>
+                    <a href="#testimonials">Reviews</a>
+                    <a href="#faq">FAQ</a>
+                    <a href="#booking">Book Now</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <a href="tel:+5016334000">📞 +501 633-4000</a>
+                    <a href="mailto:info@jaguarpreservetours.com">✉️ info@jaguarpreservetours.com</a>
+                    <p>📍 Hopkins Village, Belize</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Office Hours</h3>
+                    <p>Monday - Saturday<br>7:00 AM - 6:00 PM</p>
+                    <p style="margin-top: 10px;">Sunday: By appointment</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Jaguar Preserve Tours. All rights reserved. | Licensed & Insured Tour Operator</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/5016334000" class="whatsapp-btn" target="_blank" title="Chat on WhatsApp">💬</a>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile menu toggle
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+
+        // FAQ toggle
+        function toggleFAQ(button) {
+            const answer = button.nextElementSibling;
+            const icon = button.querySelector('span');
+            
+            answer.classList.toggle('active');
+            icon.textContent = answer.classList.contains('active') ? '−' : '+';
+        }
+
+        // Form submission
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData);
+            
+            // Log to console (in a real app, this would send to a server)
+            console.log('Booking request:', data);
+            
+            // Show success message
+            document.getElementById('successMessage').classList.add('show');
+            document.getElementById('bookingForm').style.display = 'none';
+            
+            // Scroll to success message
+            document.getElementById('successMessage').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        // Reset form
+        function resetForm() {
+            document.getElementById('bookingForm').reset();
+            document.getElementById('successMessage').classList.remove('show');
+            document.getElementById('bookingForm').style.display = 'block';
+        }
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-on-scroll');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe tour cards and sections
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.tour-card, .testimonial, .faq-item').forEach(el => {
+                observer.observe(el);
+            });
+
+            // Set minimum date for booking form to today
+            const dateInput = document.getElementById('date');
+            const today = new Date().toISOString().split('T')[0];
+            dateInput.setAttribute('min', today);
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                    // Close mobile menu if open
+                    document.getElementById('navLinks').classList.remove('active');
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
