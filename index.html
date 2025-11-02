@@ -238,6 +238,110 @@
             animation: float 3s ease-in-out infinite;
         }
 
+        /* About Section */
+        .about {
+            padding: 80px 20px;
+            background: #f8f9fa;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .about-text {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+        }
+
+        .about-text h2 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .about-text p + p {
+            margin-top: 1rem;
+        }
+
+        .about-highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .highlight-card {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.12), rgba(118, 75, 162, 0.12));
+            border: 1px solid rgba(102, 126, 234, 0.2);
+            padding: 20px;
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .highlight-card h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .highlight-card p {
+            color: #555;
+            font-size: 0.95rem;
+        }
+
+        .about-photos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .team-photo {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(41, 128, 185, 0.15), rgba(44, 62, 80, 0.25));
+            color: white;
+            min-height: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .team-photo span {
+            backdrop-filter: blur(2px);
+        }
+
+        /* Tour Details */
+        .detail-list {
+            list-style: none;
+            margin: 15px 0 0;
+            padding: 0;
+            color: #555;
+            font-size: 0.95rem;
+        }
+
+        .detail-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .detail-list li::before {
+            content: "?";
+            color: var(--accent);
+            font-size: 0.9rem;
+            margin-top: 2px;
+        }
+
         /* Tours Section */
         .tours {
             padding: 80px 20px;
@@ -623,7 +727,7 @@
                     </svg>
                     Jaguar Preserve Tours
                 </a>
-                <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+                <button class="mobile-menu-btn" onclick="toggleMenu()">?</button>
                 <ul class="nav-links" id="navLinks">
                     <li><a href="#tours">Tours</a></li>
                     <li><a href="#testimonials">Reviews</a></li>
@@ -641,10 +745,10 @@
             <p>Expert-guided adventures through jaguars, Maya ruins, and pristine rainforests</p>
             <div class="hero-buttons">
                 <a href="#tours" class="btn btn-primary">Explore Tours</a>
-                <a href="tel:+5016334000" class="btn btn-outline">📞 Call Us Now</a>
+                <a href="tel:+5016334000" class="btn btn-outline">?? Call Us Now</a>
             </div>
             <div class="trust-badge">
-                ⭐ 100+ Five-Star Reviews • Licensed Tour Operators
+                ? 100+ Five-Star Reviews ? Licensed Tour Operators
             </div>
         </div>
     </section>
@@ -697,11 +801,11 @@
                         <h3 class="tour-title">Jaguar Preserve Tour</h3>
                         <p>Hike the trails of the world's only Jaguar Preserve. Explore waterfalls and see exotic wildlife.</p>
                         <div class="tour-meta">
-                            <span>⏱️ 6-8 hours</span>
+                            <span>?? 6-8 hours</span>
                             <span class="difficulty difficulty-moderate">Moderate</span>
                         </div>
                         <div class="price">$85 <small>/person</small></div>
-                        <p style="font-size: 0.9rem; color: #666;">✓ Guide, lunch, equipment, park fees</p>
+                        <p style="font-size: 0.9rem; color: #666;">? Guide, lunch, equipment, park fees</p>
                         <a href="#booking" class="btn" style="margin-top: 15px; display: inline-block;">Book Now</a>
                     </div>
                 </div>
@@ -713,11 +817,11 @@
                         <h3 class="tour-title">Maya Ruins Tour</h3>
                         <p>Climb ancient Maya temples and explore ceremonial plazas with expert guides.</p>
                         <div class="tour-meta">
-                            <span>⏱️ 5-6 hours</span>
+                            <span>?? 5-6 hours</span>
                             <span class="difficulty difficulty-easy">Easy</span>
                         </div>
                         <div class="price">$75 <small>/person</small></div>
-                        <p style="font-size: 0.9rem; color: #666;">✓ Guide, lunch, entrance fees</p>
+                        <p style="font-size: 0.9rem; color: #666;">? Guide, lunch, entrance fees</p>
                         <a href="#booking" class="btn" style="margin-top: 15px; display: inline-block;">Book Now</a>
                     </div>
                 </div>
@@ -729,11 +833,11 @@
                         <h3 class="tour-title">Chocolate Making Experience</h3>
                         <p>Learn traditional Maya chocolate-making from bean to bar.</p>
                         <div class="tour-meta">
-                            <span>⏱️ 3-4 hours</span>
+                            <span>?? 3-4 hours</span>
                             <span class="difficulty difficulty-easy">Easy</span>
                         </div>
                         <div class="price">$65 <small>/person</small></div>
-                        <p style="font-size: 0.9rem; color: #666;">✓ Guide, materials, samples</p>
+                        <p style="font-size: 0.9rem; color: #666;">? Guide, materials, samples</p>
                         <a href="#booking" class="btn" style="margin-top: 15px; display: inline-block;">Book Now</a>
                     </div>
                 </div>
@@ -745,11 +849,11 @@
                         <h3 class="tour-title">ATM Cave Tour</h3>
                         <p>Adventure through mystical caves with underground rivers and Maya artifacts.</p>
                         <div class="tour-meta">
-                            <span>⏱️ Full day</span>
+                            <span>?? Full day</span>
                             <span class="difficulty difficulty-challenging">Challenging</span>
                         </div>
                         <div class="price">$120 <small>/person</small></div>
-                        <p style="font-size: 0.9rem; color: #666;">✓ Guide, lunch, all equipment</p>
+                        <p style="font-size: 0.9rem; color: #666;">? Guide, lunch, all equipment</p>
                         <a href="#booking" class="btn" style="margin-top: 15px; display: inline-block;">Book Now</a>
                     </div>
                 </div>
@@ -761,11 +865,11 @@
                         <h3 class="tour-title">Waterfalls & River Tubing</h3>
                         <p>Hike to pristine waterfalls and enjoy relaxing river tubing through the jungle.</p>
                         <div class="tour-meta">
-                            <span>⏱️ 4-5 hours</span>
+                            <span>?? 4-5 hours</span>
                             <span class="difficulty difficulty-moderate">Moderate</span>
                         </div>
                         <div class="price">$70 <small>/person</small></div>
-                        <p style="font-size: 0.9rem; color: #666;">✓ Guide, tubes, life jackets</p>
+                        <p style="font-size: 0.9rem; color: #666;">? Guide, tubes, life jackets</p>
                         <a href="#booking" class="btn" style="margin-top: 15px; display: inline-block;">Book Now</a>
                     </div>
                 </div>
@@ -777,11 +881,11 @@
                         <h3 class="tour-title">Day Combo Tour</h3>
                         <p>Experience the best of Belize! Visit Maya ruins and explore the jaguar preserve.</p>
                         <div class="tour-meta">
-                            <span>⏱️ Full day</span>
+                            <span>?? Full day</span>
                             <span class="difficulty difficulty-moderate">Moderate</span>
                         </div>
                         <div class="price">$130 <small>/person</small></div>
-                        <p style="font-size: 0.9rem; color: #666;">✓ Guide, lunch, all fees</p>
+                        <p style="font-size: 0.9rem; color: #666;">? Guide, lunch, all fees</p>
                         <a href="#booking" class="btn" style="margin-top: 15px; display: inline-block;">Book Now</a>
                     </div>
                 </div>
@@ -864,19 +968,19 @@
             <h2 class="section-title">What Our Guests Say</h2>
             <div class="testimonial-grid">
                 <div class="testimonial">
-                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <div class="stars">?????</div>
                     <p class="testimonial-text">"The Jaguar Preserve tour was absolutely incredible! Our guide was so knowledgeable and we saw amazing wildlife. Highly recommend!"</p>
                     <p class="testimonial-author">Sarah & Mike Johnson</p>
                     <p style="color: #999; font-size: 0.9rem;">Toronto, Canada</p>
                 </div>
                 <div class="testimonial">
-                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <div class="stars">?????</div>
                     <p class="testimonial-text">"Best tour experience in Belize! The ATM cave tour was challenging but so worth it. Professional guides and great equipment."</p>
                     <p class="testimonial-author">David Martinez</p>
                     <p style="color: #999; font-size: 0.9rem;">Los Angeles, USA</p>
                 </div>
                 <div class="testimonial">
-                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <div class="stars">?????</div>
                     <p class="testimonial-text">"The chocolate making experience was fascinating! Learning about Maya traditions while making our own chocolate was amazing."</p>
                     <p class="testimonial-author">Emma Thompson</p>
                     <p style="color: #999; font-size: 0.9rem;">London, UK</p>
@@ -947,9 +1051,9 @@
                 </div>
                 <div class="footer-section">
                     <h3>Contact Us</h3>
-                    <a href="tel:+5016334000">📞 +501 633-4000</a>
-                    <a href="mailto:info@jaguarpreservetours.com">✉️ info@jaguarpreservetours.com</a>
-                    <p>📍 Hopkins Village, Belize</p>
+                    <a href="tel:+5016334000">?? +501 633-4000</a>
+                    <a href="mailto:info@jaguarpreservetours.com">?? info@jaguarpreservetours.com</a>
+                    <p>?? Hopkins Village, Belize</p>
                 </div>
                 <div class="footer-section">
                     <h3>Office Hours</h3>
@@ -964,7 +1068,7 @@
     </footer>
 
     <!-- WhatsApp Button -->
-    <a href="https://wa.me/5016334000" class="whatsapp-btn" target="_blank" title="Chat on WhatsApp">💬</a>
+    <a href="https://wa.me/5016334000" class="whatsapp-btn" target="_blank" title="Chat on WhatsApp">??</a>
 
     <!-- JavaScript -->
     <script>
@@ -979,7 +1083,7 @@
             const icon = button.querySelector('span');
             
             answer.classList.toggle('active');
-            icon.textContent = answer.classList.contains('active') ? '−' : '+';
+            icon.textContent = answer.classList.contains('active') ? '?' : '+';
         }
 
         // Form submission
